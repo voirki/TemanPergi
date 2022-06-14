@@ -1,137 +1,88 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: MyApp(),
-    ));
+void main() => runApp(const MyApp());
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  static const String _title = 'TemanPergi';
+
   @override
-  _MyAppState createState() => _MyAppState();
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      title: _title,
+      home: MyStatefulWidget(),
+    );
+  }
 }
 
-class _MyAppState extends State<MyApp> {
+class MyStatefulWidget extends StatefulWidget {
+  const MyStatefulWidget({Key? key}) : super(key: key);
+
+  @override
+  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
+}
+
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Home',
+      style: optionStyle,
+    ),
+    Text(
+      'Places',
+      style: optionStyle,
+    ),
+    Text(
+      'Maps',
+      style: optionStyle,
+    ),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            "TemanPergi",
-            style: new TextStyle(
-              fontSize: 24.0,
-            ),
+      appBar: AppBar(
+        title: const Text('TemanPergi'),
+        backgroundColor: Color.fromARGB(255, 170, 94, 187),
+        actions: [
+          IconButton(
+            onPressed: () {}, 
+            icon: const Icon(Icons.search)
+          )
+        ],
+      ),
+      body: Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
           ),
-          backgroundColor: Color.fromARGB(255, 170, 94, 187),
-          actions: [
-            PopupMenuButton(
-                child: const Align(
-                  alignment: Alignment.centerRight,
-                  child: Padding(
-                    padding: EdgeInsets.all(16.0),
-                    child: Text('Menu'),
-                  ),
-                ),
-                itemBuilder: (context) => [
-                      const PopupMenuItem(
-                        child: Text('Home'),
-                        value: 1,
-                      ),
-                      const PopupMenuItem(
-                        child: Text('Maps'),
-                        value: 2,
-                      ),
-                      const PopupMenuItem(
-                        child: Text('Places'),
-                        value: 3,
-                      ),
-                      const PopupMenuItem(
-                        child: Text('About'),
-                        value: 4,
-                      ),
-                    ]),
-          ],
-        ),
-        body: Container(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 20.0),
-            child: GridView.count(
-              crossAxisCount: 2,
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(20.0),
-                        ),
-                        color: Colors.pink),
-                    child: Center(
-                      child: Text(
-                        "Alam",
-                        style: TextStyle(
-                          fontSize: 24.0,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(20.0),
-                        ),
-                        color: Colors.green),
-                    child: Center(
-                      child: Text(
-                        "Kuliner",
-                        style: TextStyle(
-                          fontSize: 24.0,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(20.0),
-                        ),
-                        color: Colors.purple),
-                    child: Center(
-                      child: Text(
-                        "Seni",
-                        style: TextStyle(
-                          fontSize: 24.0,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(20.0),
-                        ),
-                        color: Colors.yellow),
-                    child: Center(
-                      child: Text(
-                        "Lainnya",
-                        style: TextStyle(
-                          fontSize: 24.0,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.place),
+            label: 'Plaeces',
           ),
-        ));
+          BottomNavigationBarItem(
+            icon: Icon(Icons.map),
+            label: 'Maps',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.amber[800],
+        onTap: _onItemTapped,
+      ),
+    );
   }
 }
