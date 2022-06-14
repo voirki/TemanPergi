@@ -67,7 +67,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.place),
-            label: 'Plaeces',
+            label: 'Places',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.map),
