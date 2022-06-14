@@ -54,12 +54,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       appBar: AppBar(
         title: const Text('TemanPergi'),
         backgroundColor: Color.fromARGB(255, 170, 94, 187),
-        actions: [
-          IconButton(
-            onPressed: () {}, 
-            icon: const Icon(Icons.search)
-          )
-        ],
+        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.search))],
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
