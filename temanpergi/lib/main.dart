@@ -56,9 +56,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         backgroundColor: Color.fromARGB(255, 170, 94, 187),
         actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.search))],
       ),
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -78,6 +75,61 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         selectedItemColor: Colors.amber[800],
         onTap: _onItemTapped,
       ),
-    );
+      body: Center(
+        child: GridView.count(
+              crossAxisCount: 2,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Container(
+                    decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(20.0),),
+                      color: Colors.pink
+                    ),
+                    child: const Center(
+                      child: Text("Alam", style: TextStyle(fontSize: 24.0,),),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Container(
+                    decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(20.0),),
+                        color: Colors.green
+                    ),
+                    child: const Center(
+                      child: Text("Kuliner", style: TextStyle(fontSize: 24.0,),),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Container(
+                    decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(20.0),),
+                        color: Colors.purple
+                    ),
+                    child: const Center(
+                      child: Text("Seni", style: TextStyle(fontSize: 24.0,),),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Container(
+                    decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(20.0),),
+                        color: Colors.yellow
+                    ),
+                    child: const Center(
+                      child: Text("Lainnya", style: TextStyle(fontSize: 24.0,),),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          )
+        );
   }
 }
