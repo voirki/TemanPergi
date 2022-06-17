@@ -1,16 +1,22 @@
+import 'home.dart';
+import 'places.dart';
+import 'maps.dart';
+
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  static const String _title = 'TemanPergi';
+  static const String judul='TemanPergi';
 
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title: _title,
+      title: judul,
       home: MyStatefulWidget(),
     );
   }
@@ -23,113 +29,47 @@ class MyStatefulWidget extends StatefulWidget {
   State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
 }
 
+final bodies = [Home(), Places(), Maps()];
+int sel = 0;
+
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Home',
-      style: optionStyle,
+  
+  var menu = <BottomNavigationBarItem> [
+    const BottomNavigationBarItem(
+      icon: Icon(Icons.home),
+      label: 'Home',
     ),
-    Text(
-      'Places',
-      style: optionStyle,
+    const BottomNavigationBarItem(
+      icon: Icon(Icons.place),
+      label: 'Places',
     ),
-    Text(
-      'Maps',
-      style: optionStyle,
+    const BottomNavigationBarItem(
+      icon: Icon(Icons.map),
+      label: 'Maps',
     ),
   ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('TemanPergi'),
-        backgroundColor: Color.fromARGB(255, 170, 94, 187),
-        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.search))],
+        backgroundColor:  Color.fromARGB(255, 130, 105, 224),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.place),
-            label: 'Places',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.map),
-            label: 'Maps',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
-        onTap: _onItemTapped,
+        items: menu,
+        selectedItemColor: Color.fromARGB(255, 130, 105, 224),
+        unselectedItemColor: Colors.black,
+        currentIndex: sel,
+        onTap: (int index){
+          if (index != sel){
+            setState(() {
+              sel = index;
+            });
+          }
+        },
       ),
-      body: Center(
-        child: GridView.count(
-              crossAxisCount: 2,
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Container(
-                    decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(20.0),),
-                      color: Colors.pink
-                    ),
-                    child: const Center(
-                      child: Text("Alam", style: TextStyle(fontSize: 24.0,),),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Container(
-                    decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(20.0),),
-                        color: Colors.green
-                    ),
-                    child: const Center(
-                      child: Text("Kuliner", style: TextStyle(fontSize: 24.0,),),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Container(
-                    decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(20.0),),
-                        color: Colors.purple
-                    ),
-                    child: const Center(
-                      child: Text("Seni", style: TextStyle(fontSize: 24.0,),),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Container(
-                    decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(20.0),),
-                        color: Colors.yellow
-                    ),
-                    child: const Center(
-                      child: Text("Lainnya", style: TextStyle(fontSize: 24.0,),),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          )
-        );
+      body: bodies.elementAt(sel),
+    );
   }
 }
