@@ -1,3 +1,5 @@
+import 'package:temanpergi/about.dart';
+
 import 'home.dart';
 import 'places.dart';
 import 'maps.dart';
@@ -29,7 +31,7 @@ class MyStatefulWidget extends StatefulWidget {
   State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
 }
 
-final bodies = [Home(), Places(), Maps()];
+final bodies = [Home(), Places(), Maps(), About()];
 int sel = 0;
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
@@ -46,6 +48,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     const BottomNavigationBarItem(
       icon: Icon(Icons.map),
       label: 'Maps',
+    ),
+    const BottomNavigationBarItem(
+      icon: Icon(Icons.web),
+      label: 'About',
     ),
   ];
   
