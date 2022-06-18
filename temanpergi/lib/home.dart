@@ -14,32 +14,32 @@ class Home extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(12.0),
             child: SizedBox(
-              width: 200,
-              height: 200,
+              width: 150,
+              height: 150,
               child: Image.asset('assets/images/wisata alam.png'),
             ),
           ),
           Padding(
             padding: EdgeInsets.all(12.0),
             child: SizedBox(
-              width: 200,
-              height: 200,
+              width: 150,
+              height: 150,
               child: Image.asset('assets/images/wisata kuliner.png'),
             ),
           ),
           Padding(
             padding: EdgeInsets.all(12.0),
             child: SizedBox(
-              width: 200,
-              height: 200,
+              width: 150,
+              height: 150,
               child: Image.asset('assets/images/wisata seni.png'),
             ),
           ),
           Padding(
             padding: EdgeInsets.all(12.0),
             child: SizedBox(
-              width: 200,
-              height: 200,
+              width: 150,
+              height: 150,
               child: Image.asset('assets/images/wisata lainnya.png'),
             ),
           ),
