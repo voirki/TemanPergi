@@ -38,10 +38,17 @@ class About extends StatelessWidget {
             Container(
               alignment: Alignment.topRight,
               padding: EdgeInsets.all(10),
-              
               child: Text(
                 'Aplikasi ini dibangun untuk menyelesaikan Tugas Besar Aplikasi Berbasis Platform IF-43-05 Universitas Telkom. Aplikasi ini dibangun oleh Kelompok 2: Igga Febrian Virgiani (1301194283), Naufal Yozha Revansyah (1301194282), Manuel Benedict (1301194182), dan Tsaqib Sayyidan Sendjaja (1301193450).',
                 style: TextStyle(fontSize: 12),
+              ),
+            ),
+            Container(
+              alignment: Alignment.center,
+              padding: EdgeInsets.all(10),
+              child: Text(
+                'Copyright TemanPergi 2022',
+                style: TextStyle(fontSize: 10),
               ),
             ),
           ]
