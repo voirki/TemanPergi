@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'wisata_alam.dart';
+import 'wisata_kuliner.dart';
+import 'wisata_lainnya.dart';
+import 'wisata_seni.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -13,34 +17,50 @@ class Home extends StatelessWidget {
         children: <Widget>[
           Padding(
             padding: EdgeInsets.all(12.0),
-            child: SizedBox(
-              width: 150,
-              height: 150,
-              child: Image.asset('assets/images/wisata alam.png'),
+            child: GestureDetector(
+              onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => WisataAlam())
+              );},
+              child: Container(
+                width: 150,
+                height: 150,
+                child: Image.asset('assets/images/wisata alam.png'),
+              ),
             ),
           ),
           Padding(
             padding: EdgeInsets.all(12.0),
-            child: SizedBox(
-              width: 150,
-              height: 150,
-              child: Image.asset('assets/images/wisata kuliner.png'),
+            child: GestureDetector(
+              onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => WisataKuliner())
+              );},
+              child: Container(
+                width: 150,
+                height: 150,
+                child: Image.asset('assets/images/wisata kuliner.png'),
+              ),
             ),
           ),
           Padding(
             padding: EdgeInsets.all(12.0),
-            child: SizedBox(
-              width: 150,
-              height: 150,
-              child: Image.asset('assets/images/wisata seni.png'),
+            child: GestureDetector(
+              onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => WisataSeni())
+              );},
+              child: Container(
+                width: 150,
+                height: 150,
+                child: Image.asset('assets/images/wisata seni.png'),
+              ),
             ),
           ),
           Padding(
             padding: EdgeInsets.all(12.0),
-            child: SizedBox(
-              width: 150,
-              height: 150,
-              child: Image.asset('assets/images/wisata lainnya.png'),
+            child: GestureDetector(
+              onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => WisataLainnya())
+              );},
+              child: Container(
+                width: 150,
+                height: 150,
+                child: Image.asset('assets/images/wisata lainnya.png'),
+              ),
             ),
           ),
         ],

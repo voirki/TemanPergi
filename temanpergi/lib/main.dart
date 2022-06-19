@@ -1,8 +1,7 @@
-import 'package:temanpergi/about.dart';
-
 import 'home.dart';
 import 'places.dart';
 import 'maps.dart';
+import 'about.dart';
 
 import 'package:flutter/material.dart';
 
