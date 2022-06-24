@@ -8,7 +8,7 @@ class WisataLainnya extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: Image.asset('assets/images/wisata lainnya.png'),
-        title: const Text('Kategori Wisata Lainnya'),
+        title: const Text('Wisata Lainnya'),
         backgroundColor:  Color.fromARGB(255, 130, 105, 224),
       ),
       body: Column(

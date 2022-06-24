@@ -58,7 +58,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-         leading: Image.asset('assets/images/logoTP.png'),
+        leading: Image.asset('assets/images/logoTP.png'),
         title: const Text('TemanPergi'),
         backgroundColor:  Color.fromARGB(255, 130, 105, 224),
       ),
