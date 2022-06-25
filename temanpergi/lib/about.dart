@@ -57,4 +57,3 @@ class About extends StatelessWidget {
     );
   }
 }
-//disuruh igga
