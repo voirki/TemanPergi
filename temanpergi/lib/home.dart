@@ -3,7 +3,7 @@ import 'wisata_alam.dart';
 import 'wisata_kuliner.dart';
 import 'wisata_lainnya.dart';
 import 'wisata_seni.dart';
-import 'package:simple_slider/simple_slider.dart';
+//import 'package:simple_slider/simple_slider.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
