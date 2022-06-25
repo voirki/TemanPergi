@@ -1,4 +1,3 @@
-/*
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart' as latLng;
@@ -12,7 +11,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+/*
     return Scaffold(
+
       body: FlutterMap(
     options: MapOptions(
       center: LatLng(51.5, -0.09),
@@ -38,11 +39,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-    
+    */
   );
     );
-
-        
-  }
-}
-*/
