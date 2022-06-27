@@ -12,7 +12,7 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  static const String judul='TemanPergi';
+  static const String judul = 'TemanPergi';
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +34,7 @@ final bodies = [Home(), Places(), Maps(), About()];
 int sel = 0;
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  
-  var menu = <BottomNavigationBarItem> [
+  var menu = <BottomNavigationBarItem>[
     const BottomNavigationBarItem(
       icon: Icon(Icons.home),
       label: 'Home',
@@ -53,19 +52,22 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       label: 'About',
     ),
   ];
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: Image.asset('assets/images/logoTP.png'),
         title: const Text('TemanPergi'),
-        backgroundColor:  Color.fromARGB(255, 130, 105, 224),
+        backgroundColor: Color.fromARGB(255, 130, 105, 224),
         actions: [
           IconButton(
             icon: const Icon(Icons.search),
-            onPressed: (){
-              showSearch(context: context, delegate: CustomSearchDelegate(),);
+            onPressed: () {
+              showSearch(
+                context: context,
+                delegate: CustomSearchDelegate(),
+              );
             },
           ),
         ],
@@ -75,8 +77,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         selectedItemColor: Color.fromARGB(255, 130, 105, 224),
         unselectedItemColor: Colors.black,
         currentIndex: sel,
-        onTap: (int index){
-          if (index != sel){
+        onTap: (int index) {
+          if (index != sel) {
             setState(() {
               sel = index;
             });
@@ -89,19 +91,14 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 }
 
 class CustomSearchDelegate extends SearchDelegate {
-  List<String> searchTerms = [
-    'Alam',
-    'Kuliner',
-    'Lainnya',
-    'Seni'
-  ];
-  
+  List<String> searchTerms = [];
+
   @override
-  List<Widget> buildActions(BuildContext context){
+  List<Widget> buildActions(BuildContext context) {
     return [
       IconButton(
         icon: const Icon(Icons.clear),
-        onPressed: (){
+        onPressed: () {
           query = '';
         },
       ),
@@ -109,27 +106,27 @@ class CustomSearchDelegate extends SearchDelegate {
   }
 
   @override
-  Widget buildLeading(BuildContext context){
+  Widget buildLeading(BuildContext context) {
     return IconButton(
       icon: const Icon(Icons.arrow_back),
-      onPressed: (){
+      onPressed: () {
         close(context, null);
       },
     );
   }
 
   @override
-  Widget buildResults(BuildContext context){
+  Widget buildResults(BuildContext context) {
     List<String> matchQuery = [];
 
-    for (var searched in searchTerms){
-      if (searched.toLowerCase().contains(query.toLowerCase())){
+    for (var searched in searchTerms) {
+      if (searched.toLowerCase().contains(query.toLowerCase())) {
         matchQuery.add(searched);
       }
     }
     return ListView.builder(
       itemCount: matchQuery.length,
-      itemBuilder: (context, index){
+      itemBuilder: (context, index) {
         var result = matchQuery[index];
         return ListTile(
           title: Text(result),
@@ -139,17 +136,17 @@ class CustomSearchDelegate extends SearchDelegate {
   }
 
   @override
-  Widget buildSuggestions(BuildContext context){
+  Widget buildSuggestions(BuildContext context) {
     List<String> matchQuery = [];
 
-    for (var searched in searchTerms){
-      if (searched.toLowerCase().contains(query.toLowerCase())){
+    for (var searched in searchTerms) {
+      if (searched.toLowerCase().contains(query.toLowerCase())) {
         matchQuery.add(searched);
       }
     }
     return ListView.builder(
       itemCount: matchQuery.length,
-      itemBuilder: (context, index){
+      itemBuilder: (context, index) {
         var result = matchQuery[index];
         return ListTile(
           title: Text(result),
