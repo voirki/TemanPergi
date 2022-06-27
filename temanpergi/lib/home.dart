@@ -27,10 +27,7 @@ class Home extends StatelessWidget {
         title: const Text('TemanPergi'),
         backgroundColor: Color.fromARGB(255, 130, 105, 224),
       ),
-      body: Container(
-        color: Colors.grey,
-        child: GridView.count(
-        crossAxisCount: 2,
+      body: Column(
         children: <Widget>[
           Container(
             child: CarouselSlider(
@@ -82,57 +79,63 @@ class Home extends StatelessWidget {
              .toList(),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.all(12.0),
-            child: GestureDetector(
-              onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => WisataAlam())
-              );},
-              child: Container(
-                width: 150,
-                height: 150,
-                child: Image.asset('assets/images/wisata alam.png'),
-              ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(12.0),
-            child: GestureDetector(
-              onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => WisataKuliner())
-              );},
-              child: Container(
-                width: 150,
-                height: 150,
-                child: Image.asset('assets/images/wisata kuliner.png'),
-              ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(12.0),
-            child: GestureDetector(
-              onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => WisataSeni())
-              );},
-              child: Container(
-                width: 150,
-                height: 150,
-                child: Image.asset('assets/images/wisata seni.png'),
-              ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(12.0),
-            child: GestureDetector(
-              onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => WisataLainnya())
-              );},
-              child: Container(
-                width: 150,
-                height: 150,
-                child: Image.asset('assets/images/wisata lainnya.png'),
-              ),
+          Expanded(
+            child: GridView.count(
+              crossAxisCount: 2,
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.all(12.0),
+                  child: GestureDetector(
+                    onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => WisataAlam())
+                    );},
+                    child: Container(
+                      width: 150,
+                      height: 150,
+                      child: Image.asset('assets/images/wisata alam.png'),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(12.0),
+                  child: GestureDetector(
+                    onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => WisataKuliner())
+                  );},
+                    child: Container(
+                      width: 150,
+                      height: 150,
+                      child: Image.asset('assets/images/wisata kuliner.png'),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(12.0),
+                  child: GestureDetector(
+                    onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => WisataSeni())
+                    );},
+                    child: Container(
+                      width: 150,
+                      height: 150,
+                      child: Image.asset('assets/images/wisata seni.png'),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(12.0),
+                  child: GestureDetector(
+                    onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => WisataLainnya())
+                    );},
+                    child: Container(
+                      width: 150,
+                      height: 150,
+                      child: Image.asset('assets/images/wisata lainnya.png'),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ],
       ),
-      )
     );
   }
 }
