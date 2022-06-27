@@ -56,11 +56,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Image.asset('assets/images/logoTP.png'),
-        title: const Text('TemanPergi'),
-        backgroundColor: Color.fromARGB(255, 130, 105, 224),
-      ),
       bottomNavigationBar: BottomNavigationBar(
         items: menu,
         selectedItemColor: Color.fromARGB(255, 130, 105, 224),

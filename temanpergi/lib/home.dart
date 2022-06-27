@@ -22,6 +22,11 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: Image.asset('assets/images/logoTP.png'),
+        title: const Text('TemanPergi'),
+        backgroundColor: Color.fromARGB(255, 130, 105, 224),
+      ),
       body: Container(
         color: Colors.grey,
         child: GridView.count(
