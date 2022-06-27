@@ -60,8 +60,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         leading: Image.asset('assets/images/logoTP.png'),
         title: const Text('TemanPergi'),
         backgroundColor: Color.fromARGB(255, 130, 105, 224),
-        
-        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: menu,
