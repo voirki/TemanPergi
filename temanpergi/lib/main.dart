@@ -2,7 +2,6 @@ import 'home.dart';
 import 'places.dart';
 import 'maps.dart';
 import 'about.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -34,6 +33,7 @@ final bodies = [Home(), Places(), Maps(), About()];
 int sel = 0;
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  
   var menu = <BottomNavigationBarItem>[
     const BottomNavigationBarItem(
       icon: Icon(Icons.home),
