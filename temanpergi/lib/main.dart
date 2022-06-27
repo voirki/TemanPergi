@@ -2,7 +2,7 @@ import 'home.dart';
 import 'places.dart';
 import 'maps.dart';
 import 'about.dart';
-
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 void main() {
