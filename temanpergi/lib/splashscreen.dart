@@ -27,7 +27,7 @@ splashScreenStart() async {
 @override
 Widget build(BuildContext context) { 
   return Scaffold(
-    backgroundColor: Colors.greenAccent, 
+    backgroundColor: Colors.white, 
     body: Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
