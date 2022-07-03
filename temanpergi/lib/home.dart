@@ -31,42 +31,44 @@ class Home extends StatelessWidget {
             child: CarouselSlider(
               options: CarouselOptions(
                 autoPlay: true,
-                aspectRatio: 16/9,
+                aspectRatio: 21 / 9,
                 enlargeCenterPage: true,
               ),
-              items: imgList.map((item) => Container(
-                child: Container(
-                  margin: EdgeInsets.all(5.0),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                    child: Stack(
-                      children: <Widget>[
-                        Image.network(item, fit: BoxFit.cover, width: 1000.0),
-                        Positioned(
-                          bottom: 0.0,
-                          left: 0.0,
-                          right: 0.0,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [
-                                Color.fromARGB(200, 0, 0, 0),
-                                Color.fromARGB(0, 0, 0, 0)
+              items: imgList
+                  .map((item) => Container(
+                        child: Container(
+                          margin: EdgeInsets.all(5.0),
+                          child: ClipRRect(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(5.0)),
+                              child: Stack(
+                                children: <Widget>[
+                                  Image.network(item,
+                                      fit: BoxFit.cover, width: 500.0),
+                                  Positioned(
+                                    bottom: 0.0,
+                                    left: 0.0,
+                                    right: 0.0,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                          colors: [
+                                            Color.fromARGB(200, 0, 0, 0),
+                                            Color.fromARGB(0, 0, 0, 0)
+                                          ],
+                                          begin: Alignment.bottomCenter,
+                                          end: Alignment.topCenter,
+                                        ),
+                                      ),
+                                      padding: EdgeInsets.symmetric(
+                                          vertical: 10.0, horizontal: 20.0),
+                                    ),
+                                  ),
                                 ],
-                                begin: Alignment.bottomCenter,
-                                end: Alignment.topCenter,
-                              ),
-                            ),
-                          padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                              )),
                         ),
-                        ),
-                      ],
-                    )
-                  ),
-                ),
-              )
-            )
-             .toList(),
+                      ))
+                  .toList(),
             ),
           ),
           Expanded(
@@ -74,10 +76,14 @@ class Home extends StatelessWidget {
               crossAxisCount: 2,
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.all(12.0),
+                  padding: EdgeInsets.all(20.0),
                   child: GestureDetector(
-                    onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => WisataAlam())
-                    );},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => WisataAlam()));
+                    },
                     child: Container(
                       width: 150,
                       height: 150,
@@ -86,10 +92,14 @@ class Home extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(12.0),
+                  padding: EdgeInsets.all(20.0),
                   child: GestureDetector(
-                    onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => WisataKuliner())
-                  );},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => WisataKuliner()));
+                    },
                     child: Container(
                       width: 150,
                       height: 150,
@@ -98,10 +108,14 @@ class Home extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(12.0),
+                  padding: EdgeInsets.all(20.0),
                   child: GestureDetector(
-                    onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => WisataSeni())
-                    );},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => WisataSeni()));
+                    },
                     child: Container(
                       width: 150,
                       height: 150,
@@ -110,10 +124,14 @@ class Home extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(12.0),
+                  padding: EdgeInsets.all(20.0),
                   child: GestureDetector(
-                    onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => WisataLainnya())
-                    );},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => WisataLainnya()));
+                    },
                     child: Container(
                       width: 150,
                       height: 150,
