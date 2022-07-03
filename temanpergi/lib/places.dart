@@ -1,4 +1,12 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+
+final List<String> imgList = [
+  'https://www.goodnewsfromindonesia.id/uploads/post/large-pict-100-tahun-gedung-sate-98fc7fa941f49fc5b656d5edc9536b65.jpg',
+  'https://asset.kompas.com/crops/0GiQOXlyFIL68E_gQC4YzU3lyvk=/0x0:1200x800/750x500/data/photo/2019/10/17/5da7fb5e171f6.jpg',
+  'https://asset.kompas.com/crops/kw4iPl12YQlIFhdSfni00RPzKpc=/0x49:1000x715/750x500/data/photo/2019/12/26/5e045866d9090.jpg',
+  'https://indonesiatraveler.id/wp-content/uploads/2020/06/Bandung-Floating-Market2.jpg',
+];
 
 class Places extends StatelessWidget {
   const Places({Key? key}) : super(key: key);
@@ -19,8 +27,53 @@ class Places extends StatelessWidget {
           ),
         ],
       ),
-      body: Center(
-        child: Text('Places'),
+      body: Column(
+        children: <Widget>[
+          Container(
+            child: CarouselSlider(
+              options: CarouselOptions(
+                autoPlay: true,
+                aspectRatio: 21 / 9,
+                enlargeCenterPage: true,
+              ),
+              items: imgList
+                  .map((item) => Container(
+                        child: Container(
+                          margin: EdgeInsets.all(5.0),
+                          child: ClipRRect(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(5.0)),
+                              child: Stack(
+                                children: <Widget>[
+                                  Image.network(item,
+                                      fit: BoxFit.cover, width: 500.0),
+                                  Positioned(
+                                    bottom: 0.0,
+                                    left: 0.0,
+                                    right: 0.0,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                          colors: [
+                                            Color.fromARGB(200, 0, 0, 0),
+                                            Color.fromARGB(0, 0, 0, 0)
+                                          ],
+                                          begin: Alignment.bottomCenter,
+                                          end: Alignment.topCenter,
+                                        ),
+                                      ),
+                                      padding: EdgeInsets.symmetric(
+                                          vertical: 10.0, horizontal: 20.0),
+                                    ),
+                                  ),
+                                ],
+                              )),
+                        ),
+                      ))
+                  .toList(),
+            ),
+          ),
+        ],
       )
     );
   }
