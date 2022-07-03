@@ -1,14 +1,6 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-
-final List<String> imgList = [
-  'https://www.goodnewsfromindonesia.id/uploads/post/large-pict-100-tahun-gedung-sate-98fc7fa941f49fc5b656d5edc9536b65.jpg',
-  'https://asset.kompas.com/crops/0GiQOXlyFIL68E_gQC4YzU3lyvk=/0x0:1200x800/750x500/data/photo/2019/10/17/5da7fb5e171f6.jpg',
-  'https://asset.kompas.com/crops/kw4iPl12YQlIFhdSfni00RPzKpc=/0x49:1000x715/750x500/data/photo/2019/12/26/5e045866d9090.jpg',
-  'https://indonesiatraveler.id/wp-content/uploads/2020/06/Bandung-Floating-Market2.jpg',
-];
 
 class Places extends StatelessWidget {
   const Places({Key? key}) : super(key: key);
