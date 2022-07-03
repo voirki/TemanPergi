@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 final List<String> imgList = [
   'https://www.goodnewsfromindonesia.id/uploads/post/large-pict-100-tahun-gedung-sate-98fc7fa941f49fc5b656d5edc9536b65.jpg',
@@ -10,6 +12,14 @@ final List<String> imgList = [
 
 class Places extends StatelessWidget {
   const Places({Key? key}) : super(key: key);
+
+  final String url = 'http://10.0.2.2:8000/api/web/places';
+
+  Future getPlaces() async {
+    var response = await http.get(Uri.parse(url));
+    print(json.decode(response.body));
+    return json.decode(response.body);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -73,8 +83,33 @@ class Places extends StatelessWidget {
                   .toList(),
             ),
           ),
+          /*FutureBuilder(
+            future: getPlaces(),
+            builder: (context, snapshot){
+              if (snapshot.hasData){
+                return ListView.builder(
+                  itemCount: data[index],
+                  itemBuilder: (context, index){
+                    return Container(
+                      height: 180,
+                      child: Card(
+                        elevation: 5,
+                        child: Row(
+                          children: [
+                            Text(),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                );
+              } else {
+                return Text('Data Error');
+              }
+            },
+          ),*/
         ],
-      )
+      ),
     );
   }
 }
